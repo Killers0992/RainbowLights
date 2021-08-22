@@ -42,11 +42,16 @@ namespace RainbowLights.Components
         {
             this.state = state;
             light.Network_warheadLightOverride = state;
+            if (!this.state)
+                light.Network_warheadLightColor = defaultColor;
         }
+
+        public Color defaultColor;
 
         private void Awake()
         {
             Instances.Add(this);
+            defaultColor = light.Network_warheadLightColor;
         }
 
         private void OnDestroy()
