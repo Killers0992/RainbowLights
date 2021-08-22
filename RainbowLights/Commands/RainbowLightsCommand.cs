@@ -61,6 +61,11 @@ namespace RainbowLights.Commands
 
             foreach (var rainbowLight in lights)
             {
+                if (rainbowLight == null)
+                {
+                    RainbowLightController.Instances.Remove(rainbowLight);
+                    continue;
+                }
                 rainbowLight.SetState(state);
             }
             response = $"Rainbow light {(state ? "enabled" : "disabled")}.";
@@ -137,6 +142,11 @@ namespace RainbowLights.Commands
 
                                     foreach (var rainbowLight in lights)
                                     {
+                                        if (rainbowLight == null)
+                                        {
+                                            RainbowLightController.Instances.Remove(rainbowLight);
+                                            continue;
+                                        }
                                         rainbowLight._saturation = saturation;
                                         rainbowLight._hueShiftSpeed = hueshiftspeed;
                                         rainbowLight._value = value;
