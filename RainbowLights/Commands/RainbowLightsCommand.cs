@@ -63,7 +63,7 @@ namespace RainbowLights.Commands
             {
                 rainbowLight.SetState(state);
             }
-            response = "Rainbow light enabled.";
+            response = $"Rainbow light {(state ? "enabled" : "disabled")}.";
             return true;
         }
 
